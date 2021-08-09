@@ -1,0 +1,78 @@
+﻿<Window x:Class="Logofy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Logofy"
+        mc:Ignorable="d"
+        Title="Logofy - logofy your project!" Height="350" Width="340">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="TextFileName.pdf" Grid.ColumnSpan="2" x:Name="lblFile" Background="Lavender"/>
+        <Button x:Name="btnImport" Content="Load file" Grid.Column="3" Click="btnImport_Click" />
+
+        <TabControl Grid.Row="1" Grid.ColumnSpan="3">
+            <TabItem Header="Fakulty">
+                <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3">
+                    <StackPanel x:Name="ButtonsPlace">
+                        
+                    </StackPanel>
+
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="Info">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Jméno:" />
+                    <TextBox x:Name="txbUsrName" Grid.Column="1" Margin="5 3"/>
+
+                    <Label Content="Název předmětu:" Grid.Row="1"/>
+                    <TextBox x:Name="txbSubName" Grid.Column="1" Margin="5 3" Grid.Row="1"/>
+
+                    <Label Content="Název práce:" Grid.Row="2"/>
+                    <TextBox x:Name="txbWorkName" Grid.Column="1" Margin="5 3" Grid.Row="2"/>
+
+
+                    <TextBlock x:Name="btnAbout" TextDecorations="Underline" Padding="0 0 10 4" Foreground="RoyalBlue" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="About" MouseLeftButtonDown="btnAbout_MouseLeftButtonDown"/>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Rectangle Grid.Row="2" Grid.ColumnSpan="2" Fill="Lavender" Panel.ZIndex="0"/>
+        <Button x:Name="btnGenerate" Content="Generate! ↑" Grid.Column="2" Grid.Row="2" Click="btnGenerate_Click"/>
+
+        <StackPanel x:Name="generateMenu" Grid.Column="2" Grid.Row="1" Panel.ZIndex="5" VerticalAlignment="Bottom" Background="Lavender" Visibility="Collapsed">
+            <Button x:Name="btnGenerateWord" Content="Word" Margin="5 3" Click="btnGenerateWord_Click"/>
+            <Button x:Name="btnGeneratePDF" Content="PDF" Margin="5 3" Click="btnGeneratePDF_Click"/>
+            <Button x:Name="btnGenerateCover" Content="Cover" Margin="5 3" Click="btnGenerateCover_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="generateMenuCover" Grid.Column="1" Grid.Row="1" Panel.ZIndex="5" VerticalAlignment="Bottom" Background="Lavender" Visibility="Collapsed">
+            <Button x:Name="btnGenerateCoverPDF" Content="Pdf" Margin="5 3" Click="btnGenerateCoverPDF_Click"/>
+            <Button x:Name="btnGenerateCoverImg" Content="Img" Margin="5 3" Click="btnGenerateCoverImg_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
